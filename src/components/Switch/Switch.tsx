@@ -13,6 +13,7 @@ export function Switch({ label, id, className, ...props }: SwitchProps) {
 
   return (
     <div className={cx(styles.wrapper, className)}>
+      {/* Radix handles the on/off state and keyboard support */}
       <SwitchPrimitive.Root id={switchId} className={styles.root} {...props}>
         <SwitchPrimitive.Thumb className={styles.thumb} />
       </SwitchPrimitive.Root>

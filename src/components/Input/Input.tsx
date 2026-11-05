@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 
 export type InputSize = 'sm' | 'md';
 
-export type InputProps = Omit<ComponentProps<'input'>, 'size'> & {
+export type InputProps = Omit<ComponentProps<'input'>, 'size'> & { // Removes the native size (a number) so the custom 'sm' | 'md' size can replace it
   label: string;
   hint?: string;
   error?: string;

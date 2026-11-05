@@ -44,11 +44,13 @@
   height: 16px;
   border-radius: 9999px;
   background: var(--color-bg);
-  transform: translateX(3px);
+  /* The thumb starts 3px from the left, leaving an even gap around it */
+  transform: translateX(3px); 
   transition: transform 120ms ease;
 }
 
 .thumb[data-state='checked'] {
+  /* Moves the thumb to the right end of the track */
   transform: translateX(21px); /* 40 − 16 − 3 */
 }
 

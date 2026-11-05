@@ -10,6 +10,7 @@ export type StatCardProps = Omit<CardProps, 'children'> & {
 
 function Trend({ value }: { value: number }) {
   const direction = value > 0 ? 'up' : value < 0 ? 'down' : 'flat';
+  // Text for screen readers, since the arrow and the color mean nothing to them
   const word = { up: 'Up', down: 'Down', flat: 'Flat' }[direction];
 
   return (
@@ -26,6 +27,7 @@ function Trend({ value }: { value: number }) {
           />
         </svg>
       )}
+      {/* .srOnly is invisible on screen, but still available to screen readers */}
       <span className={styles.srOnly}>{word}</span>
       {Math.abs(value)}%
     </span>

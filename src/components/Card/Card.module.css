@@ -1,5 +1,5 @@
 .card {
-  --card-padding: var(--space-5);
+  --card-padding: var(--space-5); /* Stored as a variable so .media can reuse the same number to cancel it out */
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -82,8 +82,10 @@
 /* ---- Media ---- */
 .media {
   display: block;
+  /* Adds the left and right padding back to the width, since padding shrinks the available space */
   width: calc(100% + var(--card-padding) * 2);
   max-width: none;
+  /* Cancels the card's padding on the top, left and right, letting the image reach the edges */
   margin: calc(var(--card-padding) * -1) calc(var(--card-padding) * -1) 0;
   aspect-ratio: 16 / 9;
   object-fit: cover;

@@ -1,15 +1,20 @@
+/* A CSS Module has a build tool which renames each class 
+to something unique, this helps to make sure component styles can't 
+leak into each other*/
+
 .button {
+  /* These three help with centering the content, and let the spinner and label sit side by side */
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   gap: var(--space-2);
   font-family: var(--font-sans);
   font-weight: 600;
   line-height: 1;
-  border: 1px solid transparent;
+  border: 1px solid transparent; /* Reserves 1px of space */
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background-color 120ms ease, border-color 120ms ease;
+  transition: background-color 120ms ease, border-color 120ms ease; /* Makes color changes fade over 120ms instead of snapping*/
 }
 
 .button:focus-visible {
@@ -23,6 +28,7 @@
 }
 
 /* ---- Variants ---- */
+/* Uses semantic tokens; primary is a solid blue*/
 .primary {
   background: var(--color-action-primary);
   color: var(--color-action-primary-text);
@@ -30,7 +36,7 @@
 .primary:hover:not(:disabled) {
   background: var(--color-action-primary-hover);
 }
-
+/* secondary is white with a border */
 .secondary {
   background: var(--color-bg);
   color: var(--color-text);
@@ -76,7 +82,7 @@
 }
 
 /* ---- Loading ---- */
-.loading:disabledm {
+.loading:disabled {
     cursor: progress;
 }
 
@@ -93,6 +99,7 @@
     to { transform: rotate(360deg); }
 }
 
+/* @media checks the user's setting; if they prefer reduced motion, the spinner turns slower */
 @media (prefers-reduced-motion: reduce) {
     .spinner { animation-duration: 2s; }
 }

@@ -1,3 +1,13 @@
+/*
+  Design tokens: named values (colors, spacing, font sizes, radii)
+  stored as CSS variables. Components use var(--name) instead of
+  raw values, so a design change is made here once and updates
+  everywhere.
+
+  Two layers of tokens:
+  1. Palette: Named after the color, not its purpose.
+  2. Semantic: Named after its purpose; each one points at a palette token.
+*/
 :root {
   /* ---- Palette: raw values. Components never use these directly. ---- */
   --blue-500: #3b5bdb;

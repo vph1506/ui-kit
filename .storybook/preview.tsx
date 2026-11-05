@@ -1,8 +1,10 @@
 import type { Preview } from '@storybook/react-vite'
+// Loads the design tokens
 import '../src/styles/tokens.css';
 
 const preview: Preview = {
   parameters: {
+    // Naming rule: a prop whose name ends in color or background gets a color picker
     controls: {
       matchers: {
        color: /(background|color)$/i,

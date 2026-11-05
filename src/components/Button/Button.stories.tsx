@@ -1,11 +1,15 @@
+// Meta and StoryObj are types from Storybook
 import type { Meta, StoryObj } from '@storybook/react-vite';
+// Creates a fake function that records every call 
 import { fn } from 'storybook/test';
+// The real component being shown 
 import { Button } from './Button';
 
+// Holds the settings shared by every story in the file
 const meta = {
   title: 'Components/Button',
   component: Button,
-  tags: ['autodocs'],
+  tags: ['autodocs'], // Auto-generates the Docs page
   args: {
     children: 'Button',
     onClick: fn(),
@@ -20,11 +24,12 @@ const meta = {
       options: ['sm', 'md', 'lg'],
     },
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Button>; // Makes TypeScript check that the object is a valid meta for Button
 
-export default meta;
+export default meta; // Required, this is how Storybook finds the settings
 type Story = StoryObj<typeof meta>;
 
+// Each export const is one story
 export const Primary: Story = {
   args: { variant: 'primary' },
 };
@@ -46,11 +51,11 @@ export const Disabled: Story = {
 };
 
 export const FullWidth: Story = {
-    args: { fullWidth: true},
+  args: { fullWidth: true},
 };
 
 export const Loading: Story = {
-    args: { loading: true },
+  args: { loading: true },
 };
 
 // A custom render lets one story show several buttons at once

@@ -39,8 +39,8 @@ export function TextArea({
   const resize = useCallback(() => {
     const el = textAreaRef.current;
     if (!autoGrow || !el) return;
-    el.style.height = 'auto';
-    el.style.height = `${el.scrollHeight + el.offsetHeight - el.clientHeight}px`;
+    el.style.height = 'auto'; // Setting 'auto' first lets the box collapse to fit its content, so scrollHeight reports the real size.
+    el.style.height = `${el.scrollHeight + el.offsetHeight - el.clientHeight}px`; // scrollHeight is the height of all the text inside the box
   }, [autoGrow]);
 
   useLayoutEffect(resize, [resize, props.value]);
